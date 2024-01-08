@@ -1,0 +1,50 @@
+<!-- Adicione os inputs para pesquisa -->
+<div class="header one">
+  <div>
+    <input type="text" [(ngModel)]="searchByResp" placeholder="Nome">
+    <input type="text" [(ngModel)]="searchByTipo" placeholder="tipo">
+    <input type="text" [(ngModel)]="searchByCod" placeholder="Código">
+
+      <input [(ngModel)]="filterText" placeholder="Filtrar">
+      <button (click)="search()">Pesquisar</button>
+      <button (click)="clearFilter()">Limpar Filtro</button>
+
+  </div>
+  <div class="username">
+    <p>API_TI</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
+
+  <div class="table-container">
+    <div class="table-row header">
+      <div class="table-cell">Código</div>
+      <div class="table-cell">Nome</div>
+      <div class="table-cell">Descrição</div>
+      <div class="table-cell">Código Referência</div>
+      <div class="table-cell">Data</div>
+      <div class="table-cell">Tipo</div>
+    </div>
+
+    <div class="table-row" *ngFor="let item of filteredObjects">
+      <div class="table-cell code">
+        <strong>{{ item.cod }}</strong>
+      </div>
+      <div class="table-cell user">
+        <p>{{ item.resp }}</p>
+      </div>
+      <div class="table-cell">
+        <p>{{ item.descri }}</p>
+      </div>
+      <div class="table-cell">
+        <p>{{ item.codfre }}</p>
+      </div>
+      <div class="table-cell">
+        <p>{{ item.dtincl }}</p>
+      </div>
+      <div class="table-cell">
+        <p>{{ item.tipo }}</p>
+      </div>
+    </div>
+  </div>
+
